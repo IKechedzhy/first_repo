@@ -12,3 +12,4 @@ result = get_numbers_ticket(1, 1000, 5)
 
 print(f"Ващі виграшні номери: {result}")
     
+    

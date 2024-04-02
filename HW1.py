@@ -11,3 +11,4 @@ def get_days_from_today(date):
 days_fr_today = get_days_from_today(date_inp)
 print(f"Різниця між датами дорівнює {days_fr_today} днів")
     
+    
