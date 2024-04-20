@@ -14,8 +14,8 @@ def total_salary(path):
 
         return total_money, everege_money
     
-    except Exception as e:
-        print("Сталася помилка:", e)
+    except Exception as warning:
+        print("Сталася помилка:", warning)
 
 result = total_salary("D:\MY_REPO\\first_repo\module_four\\task_one.txt")
 print(result)
