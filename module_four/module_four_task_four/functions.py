@@ -8,16 +8,19 @@ def add_contact(args, contacts):
     contacts[name] = phone
     return "Contact added."
 
-# def change_username_phone():
-
-
-def phone_username(name, contacts):
+def change_username_phone(args, contacts):
+    name, phone = args
+    if name  in contacts:
+        contacts[name] = phone
+    return "Contact updated"
+        
+def show_phone(name, contacts):
     for name in contacts:
         if name in contacts:
             return contacts[name]
         else:
             return f"{name} not found"
-    
+            
 def show_all(contacts):
     contacts_str = ""
     for key, value in contacts.items():

@@ -21,11 +21,11 @@ def main():
         elif command == "add":
             print(add_contact(args, contacts))
 
-        # elif command == "change":
-        #     print()
+        elif command == "change":
+            print(change_username_phone(args, contacts))
 
-        elif command == "chk":
-            print(phone_username(args, contacts))
+        elif command == "check":
+            print(show_phone(args, contacts))
 
         elif command == "all":
             print(show_all(contacts))
