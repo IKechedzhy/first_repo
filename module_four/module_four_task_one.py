@@ -1,10 +1,14 @@
 import re
+from pathlib import Path
+
+path = Path('module_four') / 'task_one.txt'
 
 def total_salary(path):
+    
     try:
-        with open(path, 'r') as fh:
+        with open(path, 'r', encoding = "utf-8") as fh:
             content = fh.read()
-            find_salary = re.findall('\d+', content)
+            find_salary = re.findall(r'\d+', content)
 
         money_convert_int = list(map(int, find_salary))
         list_len = len(find_salary)
@@ -17,5 +21,4 @@ def total_salary(path):
     except Exception as warning:
         print("Сталася помилка:", warning)
 
-result = total_salary("D:\MY_REPO\\first_repo\module_four\\task_one.txt")
-print(result)
+print(total_salary(path))

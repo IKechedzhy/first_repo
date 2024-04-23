@@ -1,10 +1,14 @@
+from pathlib import Path
+
+path = Path("module_four") / "task_two.txt"
+
 def get_cats_info(path):
 
     list_of_cats = []
 
     try:
 
-        with open(path, 'r') as fh:
+        with open(path, 'r', encoding = "utf-8") as fh:
     
             for line in fh:
                 lists_with_info = line.strip().split(",")
@@ -20,5 +24,4 @@ def get_cats_info(path):
     except Exception as warning:
         print(f"Помилка: {warning} ")
 
-result = get_cats_info("D:\MY_REPO\\first_repo\module_four\\task_two.txt")
-print(result)
+print(get_cats_info(path))

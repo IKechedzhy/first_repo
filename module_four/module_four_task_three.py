@@ -1,7 +1,7 @@
 from colorama import Fore
 from pathlib import Path
 
-parent_folder_path = Path('.\module_four')
+path = Path(r'.\module_four')
 
 def explore_dir(path):
     try:
@@ -18,6 +18,6 @@ def explore_dir(path):
         print(f"{Fore.RED} + {warning}")
     return
 
-explore_dir(parent_folder_path)
+explore_dir(path)
 
 
