@@ -8,7 +8,7 @@ def get_numbers_ticket(min, max, quantity):
         return sorted(winner_numbers)
 
 
-result = get_numbers_ticket(10, 50, 49)
+result = get_numbers_ticket(10, 50, 3)
 
 print(f"Ващі виграшні номери: {result}")
     
