@@ -13,7 +13,7 @@ text = """Загальний дохід працівника складаєть�
 #     return convert_int_numb
 
 
-def generator_numbers(text): #This is function with yeild
+def generator_numbers(text):   #This is function with yeild
 
     pattern = r"\d*\.?\d+"
     find_numbers = re.findall(pattern, text)
