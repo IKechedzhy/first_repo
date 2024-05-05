@@ -31,12 +31,13 @@ def change_username_phone(args, contacts):
     return "Contact updated"
 
 @input_error       
-def show_phone(name, contacts):
-    for name in contacts:
-        if name in contacts:
-            return contacts[name]
-        else:
-            return f"{name} not found"
+def show_phone(args, contacts):
+    if len(args) != 1:
+        raise IndexError
+    name = args[0]
+    if name not in contacts:
+        raise KeyError
+    return contacts[name]
 
 @input_error
 def show_all(contacts):
