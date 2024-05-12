@@ -11,17 +11,14 @@ class Field:
 
 
 class Name(Field):
-    def __init__(self, value):
-        self.value = value
-
-    def __str__(self):
-        return str(self.value)
+    pass
 
 
 class Phone(Field):
     def __init__(self, value):
+        self.validate_format(value)
         super().__init__(value)
-        self.validate_format()
+        
 
     def validate_format(self):
         if not re.match(r'^\d{10}$', self.value):
@@ -45,15 +42,16 @@ class Record:
 
     def update_phone(self, old_phone, new_phone):
         if old_phone in self.phones:
+            Phone(new_phone)
             self.phones[self.phones.index(old_phone)] = new_phone
         else:
             raise ValueError("Phone number not found in record.")
 
-    def find_phone(self, name):
-        if self.name.value == name:
-            return self
-        else:
-            return None
+    def find_phone(self, phone_number):
+        for phone in self.phones:
+            if phone.value == phone_number:
+                return self
+        return None
 
     def __str__(self):
         phone_numbers = ', '.join(str(phone) for phone in self.phones)
@@ -66,11 +64,16 @@ class AddressBook(UserDict):
         self.data[record.name.value] = record
 
     def delete(self, name):
-        del self.data[name]
+        if name in self.data:
+            del self.data[name]
+        else:
+            print(f"Record with name '{name}' not found.")
 
     def find(self, name):
         return self.data.get(name)
 
     def update(self, name, record):
-        self.data[name] = record
-
+        if name in self.data:
+            self.data[name] = record
+        else:
+            print(f"Record with name '{name}' not found. Cannot update.")
